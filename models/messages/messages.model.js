@@ -11,7 +11,7 @@ async function db_addNewMessage(message){
 async function db_getAllMessages(){
     try{
         return 
-        await Message.find({})
+        await Message.find({visible: true})
         .populate({
             path: 'createdBy',
             select: 'name profileUrl',
@@ -33,6 +33,6 @@ async function db_deleteMessage(id){
 
 module.exports = {
     db_addNewMessage,
-    db_deleteMessage,
     db_getAllMessages,
+    db_deleteMessage,
 }

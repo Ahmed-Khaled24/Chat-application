@@ -3,6 +3,7 @@ const helmet = require('helmet');
 const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const messagesRouter = require('./routers/messages.router');
 const path = require('path');
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(session({
 }))
 app.use(passport.initialize());
 app.use(passport.session());
+app.use('messages', messagesRouter);
 
 
 module.exports = app;

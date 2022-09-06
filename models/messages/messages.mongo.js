@@ -9,15 +9,14 @@ const messageSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
-    from: {
+    createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true,
     },
-    to: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true 
+    visible: {
+        type: Boolean,
+        default: true,
     }
 });
 

@@ -8,16 +8,16 @@ async function connectMongo() {
     }
 }
 
-mongoose.once('connected', ()=>{
+mongoose.connection.once('connected', ()=>{
     console.log('MongoDB connected and ready...');
 });
 
-mongoose.on('disconnected', ()=>{
+mongoose.connection.on('disconnected', ()=>{
     console.log('MongoDB disconnected...')
 });
 
-mongoose.on('error', (err)=>{
+mongoose.connection.on('error', (err)=>{
     console.log(`MongoDB error: ${err.message}`);
 });
 
-module.exports = connectMongo();
+module.exports = connectMongo;

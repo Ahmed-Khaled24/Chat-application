@@ -19,7 +19,7 @@ async function addNewUser(req, res){
     const password = req.body.password;
     
     try {
-        const emailValidation = validateEmail(email);
+        var emailValidation = await validateEmail(email);
     } catch(err){
         return res.status(500).json({
             status: 'fail',
@@ -39,7 +39,8 @@ async function addNewUser(req, res){
         lastName,
         username,
         email,
-        password: encrypt(password),
+        password: await encrypt(password),
+        createdAt: new Date(),
     }
 
     try{

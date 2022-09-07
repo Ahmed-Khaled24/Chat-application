@@ -1,6 +1,6 @@
 const express = require('express');
 const helmet = require('helmet');
-const passport = require('passport');
+const passport = require('./config/passport.config');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const messagesRouter = require('./routers/messages.router');

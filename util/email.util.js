@@ -11,7 +11,7 @@ async function validateEmail(email){
             .emailValidations
             .submit(email, true);
         return {
-            status: validation.entires[0].status.toLowerCase(),
+            status: validation.entries[0].status.toLowerCase(),
             classification: validation.entries[0].classification.toLowerCase(),
         }      
     } catch(err){

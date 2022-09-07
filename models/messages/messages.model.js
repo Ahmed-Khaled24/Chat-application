@@ -10,13 +10,12 @@ async function db_addNewMessage(message){
 
 async function db_getAllMessages(){
     try{
-        return 
-        await Message.find({visible: true})
+        return await Message.find({visible: true})
         .populate({
             path: 'createdBy',
-            select: 'name profileUrl',
+            select: 'firstName lastName username profileUrl',
         })
-        .sort({createdAt: 'asc'})
+        .sort({createdAt: 'asc'});
     } catch(err){
         throw err;
     }

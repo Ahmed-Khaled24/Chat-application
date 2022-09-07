@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
     firstName: String,
-    secondName: String,
+    lastName: String,
     username: {
         type: String,
         required: true,
@@ -14,7 +14,6 @@ const userSchema = new mongoose.Schema({
         unique: true,
     },
     password: String,
-    salt: String,
     createdAt: Date,
     profileUrl: String,
 });

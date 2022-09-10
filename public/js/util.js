@@ -17,3 +17,17 @@ function constructErrorMessage(responseError){
         return responseError;
     }
 }
+
+function handleError(err, parentElement){
+    const errorMessage = constructErrorMessage(err.message.toLowerCase()); 
+    const errorNode = createErrorNode(errorMessage);
+    return document.getElementById(parentElement).appendChild(errorNode);
+}
+
+function checkStrength(password){
+    if(password.length < 8) { 
+        return false;
+    } else {
+        return true; // TODO: implement lowercase uppercase digits check
+    }
+}

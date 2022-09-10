@@ -1,0 +1,14 @@
+footer{
+    width: 100%;
+    display: flex;
+    color: white;
+    min-height: 10vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #6C757D;
+}
+
+footer p {
+    padding: 0;
+    margin: 0;
+}

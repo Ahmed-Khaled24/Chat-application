@@ -15,14 +15,15 @@
         <h1 class="app-brand">CHAT APP</h1>   
             <form id="login-form" action="/login" method="post">
                 <h1 class="form-heading"> Login </h1>
-                <input type="email" placeholder="Email" name="email" class="form-control form-control-lg" id="email" required>
-                <input type="password" placeholder="Password" name="password" class="form-control form-control-lg" id="password" required>
+                <input type="email" placeholder="Email" class="form-control form-control-lg" id="email" required>
+                <input type="password" placeholder="Password" class="form-control form-control-lg" id="password" required>
                 <button type="submit" class="btn btn-secondary" id="login-btn"> Login </button>
             </form>
             <p> Don't have an account? <a href="/signup" class="link-secondary"> Signup </a>  </p>
     </div>
     <%- include('partials/footer.html') %> 
     <script src="js/util.js"> </script>
+    <script src="js/requests.js"> </script>
     <script src="js/login.js"> </script>
 </body>
 </html>

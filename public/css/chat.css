@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+h1 {
+    margin: 0;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+
+nav {
+    display: flex;
+    padding: 20px 0;
+    margin-bottom: 50px;
+    justify-content: space-evenly;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+li {
+    width: 80%;
+    display: flex;
+    font-size: 15px;
+    border-radius: 20px;
+    align-items: center;
+    padding: 3px 0 3px 20px;
+    background-color: white;
+    border: 1px solid #cacaca;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+form {
+    gap: 10px;
+    width: 100%;
+    display: flex;
+}
+
+.btn {
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+}
+
+#left-panel {
+    top: 0;
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    background-color: #F1F1F1;
+}
+
+.nav-item {
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.online-area {
+    padding: 20px
+}
+
+.online-icon {
+    font-size: 10px;
+    margin-right: 5px;
+}
+
+#messages-area {
+    width: 80%;
+    margin-left: 20%;
+}
+
+.chat-heading {
+    top: 0;
+    width: 100%;
+    position: fixed;
+    padding: 10px 40px;
+    background-color: #F1F1F1;
+}
+
+#messages {
+    min-height: 100%;
+    padding: 70px 20px;
+    text-align: justify;
+    background-size: 20px 20px;
+    background-color: white;
+    background-image: radial-gradient(#cbcbcb 1px, white 1px);
+}
+
+.message-input {
+    padding: 5px 10px 10px 10px;
+    background-color: white;
+    position : fixed;
+    bottom: 0;
+    width: 80%;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 20px;
+}
+.message {
+    gap: 10px;
+    padding: 10px;
+    display: flex;
+    max-width: 30%;
+    border-radius: 10px;
+    flex-direction: column;
+    border: 1px gray solid;
+    background-color: white;
+}
+.message-header {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+.message-header img {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+}
+.message-header p {
+   font-size: 14px;
+   font-weight: 700;
+}
+.sent-at {
+    font-size: 10px;
+    text-align: right;
+}

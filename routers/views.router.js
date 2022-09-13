@@ -27,24 +27,36 @@ viewsRouter.route('/login')
 });
 
 
-
 viewsRouter.route('/signup')
 .get((req, res) => {
     res.render('signup')
 })
 
 
-
 viewsRouter.route('/chat-room')
 .get(checkLoggedIn, (req, res) => {
-    res.send('CHAT ROOM PAGE');
+    res.render('chat');
 })
-
 
 
 viewsRouter.route('/my-account')
 .get(checkLoggedIn, (req, res) => {
     res.send('ACCOUNT PAGE');
+})
+
+
+viewsRouter.route('/logout')
+.get((req, res) => {
+    req.logout( (err) => {
+        if(err) console.log(err.message);
+    });
+    return res.redirect('/login');
+})
+
+
+viewsRouter.route('/*')
+.get((req, res) => {
+    res.status(404).send('NOT FOUND 404');
 })
 
 

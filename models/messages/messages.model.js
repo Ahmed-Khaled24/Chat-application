@@ -29,9 +29,19 @@ async function db_deleteMessage(id){
     }
 }
 
+async function db_getMessageById(id){
+    try {
+        return await Message.findOne({_id:id}).populate({
+            path: 'createdBy',
+        })
+    } catch(err) {
+        throw err
+    }
+}
 
 module.exports = {
     db_addNewMessage,
     db_getAllMessages,
     db_deleteMessage,
+    db_getMessageById
 }

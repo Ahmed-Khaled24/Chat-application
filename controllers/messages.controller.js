@@ -1,11 +1,14 @@
+const mongoose = require('mongoose')
 const {
     db_addNewMessage,
     db_deleteMessage,
     db_getAllMessages,
+    db_getMessageById
 } = require('../models/messages/messages.model');
 
 async function addNewMessage(req, res){
     const message = {
+        _id: mongoose.Types.ObjectId(),
         content: req.body.content,
         createdAt: new Date(),
         createdBy: req.user.id,
@@ -15,6 +18,7 @@ async function addNewMessage(req, res){
         await db_addNewMessage(message);
         return res.status(201).json({
             status: 'success',
+            message: message,
         });
     } catch(err){
         return res.status(500).json({
@@ -54,8 +58,25 @@ async function deleteMessage(req, res){
     }
 }
 
+async function getMessageById(req, res){
+    const messageId = req.params.id;
+    try {
+        const message = await db_getMessageById(messageId);
+        return res.status(200).json({
+            status: 'success',
+            message,
+        })
+    } catch(err) {
+        return res.status(500).json({
+            status: 'fail',
+            error: err.message
+        })
+    }
+}
+
 module.exports = {
     addNewMessage,
     getAllMessages,
     deleteMessage,
+    getMessageById,
 }

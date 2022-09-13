@@ -3,6 +3,7 @@ const {
     addNewMessage,
     getAllMessages,
     deleteMessage,
+    getMessageById,
 } = require('../controllers/messages.controller')
 
 const messagesRouter = new Router();
@@ -12,6 +13,8 @@ messagesRouter.route('/')
 .post(addNewMessage)
 .delete(deleteMessage)
 
+messagesRouter.route('/:id')
+.get(getMessageById)
 
 
 module.exports = messagesRouter;

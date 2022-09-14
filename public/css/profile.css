@@ -1,0 +1,99 @@
+body {
+    height: 100vh;
+    font-family: 'Lato', sans-serif;
+    background-image: radial-gradient(#2e2e2e 1.7000000000000002px, #0e0e0e 1.7000000000000002px);
+    background-size: 34px 34px;
+    color: white;
+}
+#app {
+    min-height: 90%;
+    width: 100%;
+}
+section {
+    padding: 60px;
+}
+nav {
+    gap: 40px;
+    width: 100%;
+    display: flex;
+    padding: 10px 100px;
+    align-items: center;
+    background-color: #212529;
+    flex-direction: row-reverse;
+}
+nav a {
+    text-decoration: none;
+    font-size: 20px;
+}
+h1 {
+    margin: 30px;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+#account-info {
+    display: flex;
+    gap: 50px;
+}
+section {
+    display: flex;
+    flex-direction: column;
+}
+#profile-img {
+ gap: 15px;
+}
+img {
+    width: 250px;
+    height: 250px;
+}
+#user-info {
+    gap: 15px;
+    justify-content: center;
+}
+#user-info input{
+    width: 400px;
+    border: none;
+    color: #212529;
+    border-radius: 10px;
+    background-color: #A5C9CA;
+}
+.user-info-segment {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+@media only screen and (max-width: 950px) {
+    #user-info input{
+        width: 300px; 
+    }
+    .btn {
+        width: 250px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    #account-info {
+        flex-direction: column;
+        gap: 0;
+    }
+    nav {
+        padding: 20px;
+        justify-content: space-evenly;
+    }
+    section {
+        width: 100%;
+        align-items: center;
+    }
+}
+
+/* Scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #3e3e3e;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(40, 40, 40);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(19, 19, 19);
+}

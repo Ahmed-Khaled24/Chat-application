@@ -39,9 +39,9 @@ viewsRouter.route('/chat-room')
 })
 
 
-viewsRouter.route('/my-account')
+viewsRouter.route('/profile')
 .get(checkLoggedIn, (req, res) => {
-    res.send('ACCOUNT PAGE');
+    res.render('profile', {user: req.user});
 })
 
 

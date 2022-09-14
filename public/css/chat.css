@@ -36,48 +36,48 @@ nav {
 }
 
 .chat-heading {
-    display: flex;
-    align-items: center;
-    gap: 20px;
     top: 0;
+    gap: 20px;
     width: 100%;
+    display: flex;
     position: fixed;
     padding: 10px 60px;
-    background-color: black;
+    align-items: center;
+    background-color: #212529;
 }
 
 #messages {
     min-height: 100%;
     padding: 70px 20px;
     text-align: justify;
+    background-size: 34px 34px;
     background-color: #0e0e0e;
     background-image: radial-gradient(#2e2e2e 1.7000000000000002px, #0e0e0e 1.7000000000000002px);
-    background-size: 34px 34px;
 }
 
 .message-input {
-    padding: 5px 10px 10px 10px;
-    background-color: black;
-    position : fixed;
     bottom: 0;
     width: 100%;
+    position : fixed;
+    background-color: #212529;
+    padding: 5px 10px 10px 10px;
 }
 .form-control {
     border: none;
     color: #F9F9F9;
-    background-color: black;
+    background-color: #212529;
 }
 .form-control:focus {
     border: none;
     color: #F9F9F9;
     box-shadow: none;
-    background-color: black;
+    background-color: #212529;
 }
 
 .message-container {
     display: flex;
-    flex-direction: row-reverse;
     margin-bottom: 20px;
+    flex-direction: row-reverse;
 }
 .message {
     gap: 10px;
@@ -86,8 +86,7 @@ nav {
     max-width: 40%;
     border-radius: 10px;
     flex-direction: column;
-    background-color: black;
-    border: 1px #919191 solid;
+    background-color: #212529;
 }
 .message-header {
     gap: 10px;

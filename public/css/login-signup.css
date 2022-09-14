@@ -2,22 +2,22 @@
     margin: 0;
     padding: 0;
     font-family: 'Lato', sans-serif;
+    color: white;
 }
 
 body {   
     height: 100vh;
-    background-size: 20px 20px;
-    background-color: #F7F7F7;
-    background-image: radial-gradient(#d6d6d6 1px, #F7F7F7 1px);
+    background-image: radial-gradient(#2e2e2e 1.7000000000000002px, #0e0e0e 1.7000000000000002px);
+    background-size: 34px 34px;
 }
 
 p {
-    font-size: 1.2rem;
-    margin: 20px 0 50px 0;
+    font-size: 1rem;
+    margin: 20px;
 }
 
 form {
-    gap: 20px;
+    gap: 15px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -27,25 +27,30 @@ form {
 .app {
     width: 100%;
     display: flex;
-    min-height: 90vh;
+    min-height: 90%;
     align-items: center;
     flex-direction: column;
 }
 
 .app-brand {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 900;
-    margin: 50px 0 100px 0;
+    margin: 30px 50px 50px 50px;
     font-family: 'Righteous', cursive;
 }
 
-
 .form-heading {
-    font-size: 3rem;
+    margin: 10px;
+    font-size: 2.3rem;
 }
 
 .form-control {
+    border: none;
     width: 400px;
+    background-color: #DDDDDD;
+}
+.form-control :focus {
+    box-shadow: none;
 }
 
 .btn {
@@ -64,6 +69,38 @@ form {
 .error {
     color: red;
     width: 400px;
-    margin: 20px;
+    margin: 1rem;
     text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+    .btn {
+        width: 250px;
+    }
+    .form-control {
+        width: 250px;
+    }
+    .firstLastName {
+        flex-direction: column;
+        gap: 15px
+    } 
+    .firstLastName input {
+        width: 250px;
+    }
+}
+
+
+
+/* Scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #3e3e3e;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(40, 40, 40);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(19, 19, 19);
 }

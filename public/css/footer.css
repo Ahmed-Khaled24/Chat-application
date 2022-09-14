@@ -2,10 +2,10 @@ footer{
     width: 100%;
     display: flex;
     color: white;
-    min-height: 10vh;
+    min-height: 10%;
     align-items: center;
     justify-content: center;
-    background-color: #6C757D;
+    background-color: #212529;
 }
 
 footer p {

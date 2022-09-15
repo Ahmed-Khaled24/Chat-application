@@ -12,6 +12,11 @@ function checkLoggedIn(req, res, next){
     }
 }
 
+viewsRouter.route('/')
+.get((req, res) => {
+    res.redirect('/login');
+})
+
 viewsRouter.route('/login')
 .get( (req, res, next) => {
     if(req.isAuthenticated()) {

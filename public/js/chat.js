@@ -62,11 +62,11 @@ function createMessageContainer(messageObject){
 }
 function createUserImgElement(messageObject){
     const userImg = document.createElement('img');
-    userImg.alt = 'usr-img';
+    userImg.alt = 'img';
     if (messageObject.createdBy.profileUrl) {
-        userImg.src = `usersProfile/${messageObject.createdBy.profileUrl}`;
+        userImg.src = `/usersProfile/${messageObject.createdBy.profileUrl}`;
     } else { 
-        userImg.src = 'usersProfile/default.png';
+        userImg.src = '/img/default.png';
     }
     return userImg;
 }

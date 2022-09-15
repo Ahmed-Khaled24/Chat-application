@@ -5,6 +5,7 @@ socket.on('newMessage', async (messageId) => {
     messageObject = await messageObject.json();
     addMessageToScreen(createMessageContainer(messageObject.message));
     scrollToBottom();
+    new Audio('audio/tone.mp3').play();
 });
 
 document.getElementById('send-message-form').addEventListener('submit', async (event)=>{

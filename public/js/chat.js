@@ -1,9 +1,7 @@
 const socket = io();
 
-socket.on('newMessage', async (messageId) => {
-    let messageObject = await fetch(`/messages/${messageId}`);
-    messageObject = await messageObject.json();
-    addMessageToScreen(createMessageContainer(messageObject.message));
+socket.on('newMessage', async (message) => {
+    addMessageToScreen(createMessageContainer(message));
     scrollToBottom();
     new Audio('audio/tone.mp3').play();
 });
@@ -25,7 +23,9 @@ document.getElementById('send-message-form').addEventListener('submit', async (e
         response = await response.json();
 
         if (response.status === 'success') {
-            socket.emit('newMessage', response.message._id);
+            addMessageToScreen(createMessageContainer(response.message));
+            scrollToBottom(); 
+            socket.emit('newMessage', response.message);
         }
 
     } catch(err) {

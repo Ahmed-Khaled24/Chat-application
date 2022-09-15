@@ -18,7 +18,7 @@ async function addNewMessage(req, res){
         await db_addNewMessage(message);
         return res.status(201).json({
             status: 'success',
-            message: message,
+            message: await db_getMessageById(message._id), // to populate createdBy path
         });
     } catch(err){
         return res.status(500).json({

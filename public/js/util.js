@@ -25,7 +25,7 @@ function handleError(err, parentElement){
 }
 
 function checkStrength(password){
-   return /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8}$/.test(password);
+   	return /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,50}$/.test(password);
 }
 
 function simplifyDate(messageDate) {

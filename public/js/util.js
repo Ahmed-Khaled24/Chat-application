@@ -25,11 +25,7 @@ function handleError(err, parentElement){
 }
 
 function checkStrength(password){
-    if(password.length < 8) { 
-        return false;
-    } else {
-        return true; // TODO: implement lowercase uppercase digits check
-    }
+   return /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8}$/.test(password);
 }
 
 function simplifyDate(messageDate) {

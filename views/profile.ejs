@@ -30,7 +30,7 @@
                 <section id="user-info">
                     <div class="user-info-segment">
                         <label for="fullName">Full name: </label>
-                        <input type="text" id="fullName" class="form-control" value="<%= user.firstName + user.lastName %>" disabled >
+                        <input type="text" id="fullName" class="form-control" value="<%= `${user.firstName} ${user.lastName}` %>" disabled >
                     </div>
                     <div class="user-info-segment">
                         <label for="username">Username: </label>

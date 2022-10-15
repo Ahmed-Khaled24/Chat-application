@@ -20,9 +20,7 @@ viewsRouter.route('/login')
 }, (req, res) => {
     res.render('login');
 })
-.post( passport.authenticate('local'), (req, res) => {
-    return res.status(200).json('authorized')
-});
+
 
 
 viewsRouter.route('/signup')

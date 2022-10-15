@@ -54,8 +54,13 @@ form {
 }
 
 .btn {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     width: 400px;
+}
+.btn-danger{
+    background-color: darkred;
+    border: none;
+    box-shadow: none;
 }
 
 .firstLastName{
@@ -88,7 +93,11 @@ form {
         width: 250px;
     }
 }
-
+@media only screen and (max-width: 350px) {
+    .app-brand {
+        margin: 10px;
+    }
+}
 
 
 /* Scroll bar */

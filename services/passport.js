@@ -1,12 +1,13 @@
 const passport = require('passport');
 const localStrategy = require('passport-local');
+const googleStrategy = require('passport-google-oauth20');
 const {
     db_getUserById,
     db_getUserByEmail,
+    db_addNewUser,
 } = require('../models/users/users.model');
-const {
-    validatePassword,
-} = require('../util/password.util')
+const { validatePassword } = require('../util/password.util')
+const keys = require('../config/keys')
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -20,7 +21,7 @@ passport.deserializeUser( async (userId, done) => {
     }
 });
 
-// LOCAL STRATEGY
+// Local
 const localOptions = {
     usernameField: 'email',
     passportField: 'password',
@@ -42,8 +43,36 @@ async function localVerify(email, password, done){
         done(err);
     }
 }
-
 passport.use(new localStrategy(localOptions, localVerify));
 
+// Google Oauth20 
+const googleOptions = {
+    clientID: keys.google_client_id,
+    clientSecret: keys.google_client_secret,
+    callbackURL: keys.google_callback,
+    scope: ['email', 'profile'],
+}
+async function googleVerify(accessToken, refreshToken, profile, done){
+    const profileData = profile._json;
+    let user = await db_getUserByEmail(profileData.email);
+    
+    if(user) {
+        return done(null, user)
+    }
 
-module.exports = passport;
+    user = {    
+        firstName: profileData.given_name,
+        lastName: profileData.family_name,
+        email: profileData.email,
+        createdAt: new Date(),
+        profileUrl: '/img/default.png',
+    }
+
+    try {
+        await db_addNewUser(user);
+    } catch(err){
+        console.log(err.message);
+    }
+    done(null, user);
+}
+passport.use(new googleStrategy(googleOptions, googleVerify));

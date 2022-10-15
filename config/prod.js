@@ -7,5 +7,6 @@ module.exports = {
     google_client_id: process.env.GOOGLE_CLIENT_ID_PROD,
     google_client_secret: process.env.GOOGLE_CLIENT_SECRET_PROD,
     access_key_id: process.env.ACCESS_KEY_ID,
-    secret_access_key: process.env.SECRET_ACCESS_KEY
+    secret_access_key: process.env.SECRET_ACCESS_KEY,
+    google_callback: 'https://chat-applicatin-kh.herokuapp.com/auth/google/callback'
 }

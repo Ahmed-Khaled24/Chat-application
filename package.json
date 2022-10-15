@@ -11,6 +11,8 @@
   "author": "Ahmed Khaled",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.188.0",
+    "@aws-sdk/s3-request-presigner": "^3.188.0",
     "bcrypt": "^5.0.1",
     "cookie-session": "^2.0.0",
     "dotenv": "^16.0.2",

@@ -11,7 +11,6 @@ async function addNewUser(req, res){
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const email = req.body.email;
-    const username = req.body.username;
     const password = req.body.password;
     
     try {
@@ -33,7 +32,6 @@ async function addNewUser(req, res){
     const user = {
         firstName,
         lastName,
-        username,
         email,
         password: await encrypt(password),
         createdAt: new Date(),

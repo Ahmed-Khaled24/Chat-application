@@ -1,5 +1,5 @@
 async function sendLoginRequest(email, password){
-    let response = await fetch('/login', {
+    let response = await fetch('/auth/local', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -7,5 +7,4 @@ if (ENV === 'production') {
     keys = require('./dev');
 }
 
-console.log(keys);
 module.exports = keys;

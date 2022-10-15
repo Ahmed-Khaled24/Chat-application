@@ -17,13 +17,13 @@
             <form id="signup-form" action="/users" method="post">
                 <h1 class="form-heading"> Sign up </h1>
                 <div class="firstLastName">
-                    <input type="text" placeholder="First name" class="form-control form-control-lg"  id="firstName" required>
-                    <input type="text" placeholder="Last name" class="form-control form-control-lg" id="lastName" required>
+                    <input type="text" placeholder="First name" class="form-control"  id="firstName" required>
+                    <input type="text" placeholder="Last name" class="form-control" id="lastName" required>
                 </div>
-                <input type="txt" placeholder="Username" class="form-control form-control-lg" id="username" required>
-                <input type="email" placeholder="Email" class="form-control form-control-lg" id="email" required>
-                <input type="password" placeholder="Password" class="form-control form-control-lg" id="password" required>
+                <input type="email" placeholder="Email" class="form-control" id="email" required>
+                <input type="password" placeholder="Password" class="form-control" id="password" required>
                 <button type="submit" class="btn btn-dark" id="signup-btn"> Signup </button>
+                <a href="/auth/google" class="btn btn-danger"> Continue with google </a>
             </form>
             <p> Already have an account? <a href="/login" class="link-secondary"> Login </a> </p>
     </div>

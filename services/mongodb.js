@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+const keys = require('../config/keys');
 
 async function connectMongo() {
     try{
-        return mongoose.connect(process.env.MONGO_URL)
+        return mongoose.connect(keys.mongo_url)
     } catch(err){
         console.log(err.message);
     }

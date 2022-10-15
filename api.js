@@ -1,3 +1,4 @@
+const keys = require('./config/keys');
 const express = require('express');
 const passport = require('passport');
 const session = require('cookie-session');
@@ -14,7 +15,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 app.use(session({
     name: 'Chat',
-    secret: process.env.SESSION_SECRET, 
+    secret: keys.session_secret, 
     cookie:{
         maxAge: 60 * 1000 * 1000 * 24,
     },

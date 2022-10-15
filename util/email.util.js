@@ -1,8 +1,9 @@
 const { VerifaliaRestClient } = require('verifalia');
+const keys = require('../config/keys')
 
 const verifalia = new VerifaliaRestClient({
-    username: process.env.VERIFALIA_USERNAME,
-    password: process.env.VERIFALIA_PASSWORD,
+    username: keys.verifalia_username,
+    password: keys.verifalia_password,
 });
 
 async function validateEmail(email){

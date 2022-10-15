@@ -1,7 +1,6 @@
 const express = require('express');
 const passport = require('passport');
-const session = require('express-session');
-const MongoStore = require('connect-mongo');
+const session = require('cookie-session');
 const messagesRouter = require('./routers/messages.router');
 const usersRouter = require('./routers/users.router');
 const viewsRouter = require('./routers/views.router');
@@ -15,15 +14,10 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 app.use(session({
     name: 'Chat',
-    resave: false,
-    saveUninitialized: false,
     secret: process.env.SESSION_SECRET, 
     cookie:{
         maxAge: 60 * 1000 * 1000 * 24,
     },
-    store: MongoStore.create({
-        mongoUrl: process.env.MONGO_URL
-    }),
 }))
 app.use(passport.initialize());
 app.use(passport.session());

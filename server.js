@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('./services/passport');
 const http = require('http');
 const app = require('./api');
 const {Server} = require('socket.io');

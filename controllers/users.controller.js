@@ -4,12 +4,8 @@ const {
     db_getUserByUsername,
     db_getUserByEmail,
 } = require('../models/users/users.model')
-const {
-    encrypt,
-} = require('../util/password.util');
-const {
-    validateEmail, 
-} = require('../util/email.util');
+const { encrypt } = require('../util/password.util');
+const { validateEmail } = require('../util/email.util');
 
 async function addNewUser(req, res){
     const firstName = req.body.firstName;

@@ -14,7 +14,6 @@ async function sendLoginRequest(email, password){
     }  
 }
 
-
 async function sendSignupRequest(firstName, lastName, username, email, password){
     const isStrongPassword = checkStrength(password);
     if(!isStrongPassword) {   
@@ -33,3 +32,4 @@ async function sendSignupRequest(firstName, lastName, username, email, password)
         throw Error(response.error);
     }
 }
+

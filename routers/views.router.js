@@ -1,16 +1,9 @@
 const {Router} = require('express');
-const passport = require('../config/passport.config');
+const passport = require('passport');
 const path = require('path');
-
+const checkLoggedIn = require('../middlewares/checkLoggedIn');
 const viewsRouter = Router();
 
-function checkLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
-        next();
-    } else {
-        res.redirect('/login');
-    }
-}
 
 viewsRouter.route('/')
 .get((req, res) => {

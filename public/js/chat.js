@@ -6,32 +6,34 @@ socket.on('newMessage', async (message) => {
     new Audio('audio/tone.mp3').play();
 });
 
-document.getElementById('send-message-form').addEventListener('submit', async (event)=>{
-    event.preventDefault();
-    const messageContent = document.getElementById('message-content').value;
-    document.getElementById('message-content').value = '';
-    try{
-        let response = await fetch('/messages', {
-            method: 'post',
-            headers: {
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify({
-                content: messageContent,
-            })
-        });
-        response = await response.json();
+document.getElementById('send-message-form').addEventListener('submit', 
+    async (event) => {
+        event.preventDefault();
+        const messageContent = document.getElementById('message-content').value;
+        document.getElementById('message-content').value = '';
+        try{
+            let response = await fetch('/messages', {
+                method: 'post',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify({
+                    content: messageContent,
+                })
+            });
+            response = await response.json();
 
-        if (response.status === 'success') {
-            addMessageToScreen(createMessageContainer(response.message));
-            scrollToBottom(); 
-            socket.emit('newMessage', response.message);
+            if (response.status === 'success') {
+                addMessageToScreen(createMessageContainer(response.message));
+                scrollToBottom(); 
+                socket.emit('newMessage', response.message);
+            }
+
+        } catch(err) {
+            console.log(err.message);
         }
-
-    } catch(err) {
-        console.log(err.message);
     }
-});
+);
 
 async function loadAllMessages(){
     let response = await fetch('/messages');
@@ -99,13 +101,12 @@ function createSentAtElement(messageObject){
 function addMessageToScreen(messageContainer) {
     document.getElementById('messages').appendChild(messageContainer);
 }
-
 function scrollToBottom() {
     window.scrollTo(0, document.body.scrollHeight);
 }
-
 async function loadPage(){
     await loadAllMessages();
     scrollToBottom();
 }
+
 loadPage();

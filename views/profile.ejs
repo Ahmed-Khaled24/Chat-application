@@ -27,7 +27,7 @@
                 <section id="visual-section">
                     <% let imgSource = (user.profileUrl ? `https://chat-application-bucket01.s3.eu-west-3.amazonaws.com/${user.profileUrl}` : `img/default.png`) %> 
                     <img src=<%= imgSource %>  alt="profile picture">
-                    <input type="file" accept="image/*">
+                    <input type="file" accept="image/*" class="form-control form-control-sm" >
                     <button class="btn btn-dark" disabled> Upload new photo </button>
                 </section>
 

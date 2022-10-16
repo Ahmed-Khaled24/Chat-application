@@ -1,8 +1,10 @@
 const socket = io();
-const  newMessageForm = document.getElementById('send-message-form');
+const newMessageForm = document.getElementById('send-message-form');
+const messages = document.querySelector('#messages');
+const messageInput = document.querySelector('#message-content');
 
 socket.on('newMessage', async (message) => {
-    addMessageToScreen(createMessageContainer(message));
+    appendMessage(message);
     scrollToBottom();
     new Audio('audio/tone.mp3').play();
 });
@@ -10,11 +12,11 @@ socket.on('newMessage', async (message) => {
 newMessageForm.addEventListener('submit', 
     async (event) => {
         event.preventDefault();
-        const messageContent = document.getElementById('message-content').value;
-        document.getElementById('message-content').value = '';
+        const messageContent = messageInput.value;
+        messageInput.value = '';
         try{
             let response = await fetch('/messages', {
-                method: 'post',
+                method: 'POST',
                 headers: {
                     'Content-Type' : 'application/json'
                 },
@@ -25,11 +27,10 @@ newMessageForm.addEventListener('submit',
             response = await response.json();
 
             if (response.status === 'success') {
-                addMessageToScreen(createMessageContainer(response.message));
-                scrollToBottom(); 
+                appendMessage(response.message);
                 socket.emit('newMessage', response.message);
+                scrollToBottom(); 
             }
-
         } catch(err) {
             console.log(err.message);
         }
@@ -40,71 +41,40 @@ async function loadAllMessages(){
     let response = await fetch('/messages');
     response = await response.json();
     let messages = response.messages;
-    for(message of messages) {
-        addMessageToScreen(
-            createMessageContainer(message)
-        );
+    for(msg of messages) {
+        appendMessage(msg);
     }
 }
-function createMessageContainer(messageObject){
-    const messageHeader = createMessageHeaderElement(messageObject);
-    const messageContent = createMessageContentElement(messageObject);
-    const sentAt = createSentAtElement(messageObject);
 
-    const message = document.createElement('div');
-    message.classList.add('message');
-    message.appendChild(messageHeader);
-    message.appendChild(messageContent);
-    message.appendChild(sentAt); 
-
-    const messageContainer = document.createElement('div');
+function appendMessage(msg) {
+    const messageContainer = document.createElement('div')
     messageContainer.classList.add('message-container');
-    messageContainer.appendChild(message);
 
-    return messageContainer;
+    const imgSrc = ( 
+        msg.createdBy.profileUrl ? 
+        `https://chat-application-bucket01.s3.eu-west-3.amazonaws.com/${msg.createdBy.profileUrl}`: 
+        `/img/default.png` 
+    );
+
+    const newMessage = document.createElement('div');
+    newMessage.classList.add('message');
+    newMessage.innerHTML = `
+        <div class="message-header"> 
+            <img alt="profile" src=${ imgSrc }>
+            <p> ${ msg.createdBy.firstName } ${ msg.createdBy.lastName } </p>
+        </div>
+        <p> ${ msg.content } </p>
+        <p class="sent-at"> ${ simplifyDate(new Date(msg.createdAt)) } </p>
+    `;
+    
+    messageContainer.appendChild(newMessage);
+    messages.appendChild(messageContainer);
 }
-function createUserImgElement(messageObject){
-    const userImg = document.createElement('img');
-    userImg.alt = 'img';
-    if (messageObject.createdBy.profileUrl) {
-        userImg.src = `https://chat-application-bucket01.s3.eu-west-3.amazonaws.com/${messageObject.createdBy.profileUrl}`;
-    } else { 
-        userImg.src = '/img/default.png';
-    }
-    return userImg;
-}
-function createUsernameElement(messageObject) {
-    const username = document.createElement('p');
-    username.innerText = `${messageObject.createdBy.firstName} ${messageObject.createdBy.lastName}`;   
-    return username;
-}
-function createMessageHeaderElement(messageObject){
-    const userImg = createUserImgElement(messageObject);
-    const username = createUsernameElement(messageObject);
-    const messageHeader = document.createElement('div');
-    messageHeader.classList.add('message-header');
-    messageHeader.appendChild(userImg);
-    messageHeader.appendChild(username);
-    return messageHeader
-}
-function createMessageContentElement(messageObject) {
-    const messageContent = document.createElement('p');
-    messageContent.innerText = messageObject.content;
-    return messageContent;
-}
-function createSentAtElement(messageObject){
-    const sentAt = document.createElement('p');
-    sentAt.classList.add('sent-at');
-    createdAt = new Date(messageObject.createdAt)
-    sentAt.innerText = simplifyDate(createdAt);
-    return sentAt;
-}
-function addMessageToScreen(messageContainer) {
-    document.getElementById('messages').appendChild(messageContainer);
-}
+
 function scrollToBottom() {
     window.scrollTo(0, document.body.scrollHeight);
 }
+
 async function loadPage(){
     await loadAllMessages();
     scrollToBottom();

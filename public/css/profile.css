@@ -25,7 +25,6 @@ section {
     flex-direction: column;
 }
 
-
 .user-info-segment {
     display: flex;
     flex-direction: column;
@@ -42,7 +41,7 @@ section {
     margin: 50px 0;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 #text-section {

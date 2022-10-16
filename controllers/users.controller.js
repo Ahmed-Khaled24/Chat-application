@@ -3,6 +3,7 @@ const {
     db_getUserById,
     db_getUserByUsername,
     db_getUserByEmail,
+    db_updateUser,
 } = require('../models/users/users.model')
 const { encrypt } = require('../util/password.util');
 const { validateEmail } = require('../util/email.util');
@@ -35,6 +36,7 @@ async function addNewUser(req, res){
         email,
         password: await encrypt(password),
         createdAt: new Date(),
+        profileUrl: null,
     }
 
     try{
@@ -66,8 +68,23 @@ async function getUserById(req, res){
     }
 }
 
+async function updateUser(req, res) {
+    const userId = req.user.id;
+    const update = req.body.update;
+    try {
+        await db_updateUser(userId, update);
+        res.status(200).json({status: 'success'});
+    } catch(err) {
+        res.status(500).json({
+            status: 'fail',
+            message: err.message
+        })
+    }
+}
+
 
 module.exports = {
     addNewUser,
     getUserById,
+    updateUser
 }

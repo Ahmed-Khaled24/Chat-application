@@ -32,9 +32,18 @@ async function db_getUserByEmail(email){
     }
 }
 
+async function db_updateUser(userId, update){
+    try {
+        await User.updateOne({_id: userId}, update);
+    } catch(err) {
+        throw err;
+    }
+}
+
 module.exports = {
     db_addNewUser,
     db_getUserById,
     db_getUserByUsername,
     db_getUserByEmail,
+    db_updateUser
 }

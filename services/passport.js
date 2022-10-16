@@ -65,7 +65,7 @@ async function googleVerify(accessToken, refreshToken, profile, done){
         lastName: profileData.family_name,
         email: profileData.email,
         createdAt: new Date(),
-        profileUrl: '/img/default.png',
+        profileUrl: null,
     }
 
     try {

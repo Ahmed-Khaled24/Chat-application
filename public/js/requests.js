@@ -14,7 +14,7 @@ async function sendLoginRequest(email, password){
     }  
 }
 
-async function sendSignupRequest(firstName, lastName, username, email, password){
+async function sendSignupRequest(firstName, lastName, email, password){
     const isStrongPassword = checkStrength(password);
     if(!isStrongPassword) {   
         throw Error('Weak password, your password must be at least 8 characters, containing uppercase, lowercase, and digits.')  
@@ -25,7 +25,7 @@ async function sendSignupRequest(firstName, lastName, username, email, password)
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({firstName, lastName, username, email, password}),   
+        body: JSON.stringify({firstName, lastName, email, password}),   
     });
     response = await response.json();
     if(response.status === 'fail'){

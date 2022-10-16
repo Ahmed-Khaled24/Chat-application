@@ -1,17 +1,11 @@
 body {
     height: 100vh;
     font-family: 'Lato', sans-serif;
-    background-image: radial-gradient(#2e2e2e 1.7000000000000002px, #0e0e0e 1.7000000000000002px);
+    background-image: radial-gradient(#2e2e2e 1.7px, #0e0e0e 1.7px);
     background-size: 34px 34px;
     color: white;
 }
-#app {
-    min-height: 90%;
-    width: 100%;
-}
-section {
-    padding: 60px 0;
-}
+
 nav {
     gap: 40px;
     width: 100%;
@@ -25,31 +19,57 @@ nav a {
     text-decoration: none;
     font-size: 20px;
 }
+
 h1 {
     margin: 30px;
     font-size: 2.2rem;
     font-weight: 700;
 }
+
+section {
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+}
+
+.user-info-segment {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+}
+
+#app {
+    min-height: 90%;
+    width: 100%;
+}
+
 #account-info {
     display: flex;
     gap: 50px;
     justify-content: space-evenly;
 }
-section {
-    display: flex;
-    flex-direction: column;
-}
+
 #profile-img {
  gap: 15px;
 }
-img {
-    width: 250px;
-    height: 250px;
-}
+
 #user-info {
     gap: 15px;
     justify-content: center;
 }
+
 #user-info input{
     width: 400px;
     border: none;
@@ -57,11 +77,8 @@ img {
     border-radius: 10px;
     background-color: #A5C9CA;
 }
-.user-info-segment {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
+
+
 @media only screen and (max-width: 950px) {
     #user-info input{
         width: 300px; 
@@ -94,16 +111,3 @@ img {
     }
 }
 
-/* Scroll bar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-track {
-    background: #3e3e3e;
-}
-::-webkit-scrollbar-thumb {
-    background: rgb(40, 40, 40);
-}
-::-webkit-scrollbar-thumb:hover {
-    background: rgb(19, 19, 19);
-}

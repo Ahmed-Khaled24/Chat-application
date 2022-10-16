@@ -1,0 +1,31 @@
+.loader {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-bottom-color: white;
+    animation: loaderAnimation 600ms ease infinite;
+}
+
+@keyframes loaderAnimation {
+    0% {
+        transform: rotate(0turn);
+    }
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+/* Scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #3e3e3e;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(40, 40, 40);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(19, 19, 19);
+}

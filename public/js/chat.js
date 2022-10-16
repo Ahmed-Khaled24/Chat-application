@@ -1,4 +1,5 @@
 const socket = io();
+const  newMessageForm = document.getElementById('send-message-form');
 
 socket.on('newMessage', async (message) => {
     addMessageToScreen(createMessageContainer(message));
@@ -6,7 +7,7 @@ socket.on('newMessage', async (message) => {
     new Audio('audio/tone.mp3').play();
 });
 
-document.getElementById('send-message-form').addEventListener('submit', 
+newMessageForm.addEventListener('submit', 
     async (event) => {
         event.preventDefault();
         const messageContent = document.getElementById('message-content').value;
@@ -66,7 +67,7 @@ function createUserImgElement(messageObject){
     const userImg = document.createElement('img');
     userImg.alt = 'img';
     if (messageObject.createdBy.profileUrl) {
-        userImg.src = `/usersProfile/${messageObject.createdBy.profileUrl}`;
+        userImg.src = `https://chat-application-bucket01.s3.eu-west-3.amazonaws.com/${messageObject.createdBy.profileUrl}`;
     } else { 
         userImg.src = '/img/default.png';
     }

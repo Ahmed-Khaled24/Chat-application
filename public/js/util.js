@@ -18,10 +18,10 @@ function constructErrorMessage(responseError){
     }
 }
 
-function handleError(err, parentElement){
+function handleError(err){
     const errorMessage = constructErrorMessage(err.message.toLowerCase()); 
     const errorNode = createErrorNode(errorMessage);
-    return document.getElementById(parentElement).appendChild(errorNode);
+    return document.querySelector('.app').appendChild(errorNode);
 }
 
 function checkStrength(password){

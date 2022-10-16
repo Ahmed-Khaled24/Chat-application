@@ -1,3 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    color: #F9F9F9;
+}
+
+body {
+    height: 100vh;
+    background-image: radial-gradient(#2e2e2e 1.7px, #0e0e0e 1.7px);
+    background-size: 34px 34px;
+    color: white;
+}
+
+.app {
+    width: 100%;
+    display: flex;
+    min-height: 90%;
+    align-items: center;
+    flex-direction: column;
+}
+
 .loader {
     width: 30px;
     height: 30px;
@@ -5,6 +27,13 @@
     border: 3px solid transparent;
     border-bottom-color: white;
     animation: loaderAnimation 600ms ease infinite;
+}
+
+.error {
+    color: red;
+    width: 400px;
+    margin: 1rem;
+    text-align: center;
 }
 
 @keyframes loaderAnimation {

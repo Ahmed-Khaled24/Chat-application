@@ -12,9 +12,9 @@
         <link rel="icon" href="img/icon.png">
         <title>My profile</title>
     </head>
-
     <body>
-        <div id="app">
+        <div class="app">
+            
             <nav>
                 <a href="/logout" class="link-light"> Logout</a>
                 <a href="/chat-room" class="link-light"> Chat room</a>
@@ -23,14 +23,15 @@
             <h1> Account information </h1>
 
             <div id="account-info">
-                <section id="profile-img">
+
+                <section id="visual-section">
                     <% let imgSource = (user.profileUrl ? `https://chat-application-bucket01.s3.eu-west-3.amazonaws.com/${user.profileUrl}` : `img/default.png`) %> 
                     <img src=<%= imgSource %>  alt="profile picture">
                     <input type="file" accept="image/*">
                     <button class="btn btn-dark" disabled> Upload new photo </button>
                 </section>
 
-                <section id="user-info">
+                <section id="text-section">
                     <div class="user-info-segment">
                         <label for="fullName">Full name: </label>
                         <input type="text" id="fullName" class="form-control" value="<%= `${user.firstName} ${user.lastName}` %>" disabled >
@@ -42,7 +43,6 @@
                 </section>
             </div>
         </div>
-        
         <%- include('./partials/footer.html') %> 
         <script src="/js/uploadProfile.js"></script>
     </body>

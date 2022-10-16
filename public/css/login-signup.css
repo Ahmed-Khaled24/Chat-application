@@ -1,19 +1,14 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lato', sans-serif;
-    color: white;
-}
-
-body {   
-    height: 100vh;
-    background-image: radial-gradient(#2e2e2e 1.7000000000000002px, #0e0e0e 1.7000000000000002px);
-    background-size: 34px 34px;
-}
-
 p {
     font-size: 1rem;
     margin: 20px;
+}
+
+h1 {
+    font-size: 2.3rem;
+}
+
+img {
+    width: 25px;
 }
 
 form {
@@ -22,14 +17,7 @@ form {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-}
-
-.app {
-    width: 100%;
-    display: flex;
-    min-height: 90%;
-    align-items: center;
-    flex-direction: column;
+    width: 350px;
 }
 
 .app-brand {
@@ -39,77 +27,20 @@ form {
     font-family: 'Righteous', cursive;
 }
 
-.form-heading {
-    margin: 10px;
-    font-size: 2.3rem;
-}
-
-.form-control {
-    border: none;
-    width: 400px;
-    background-color: #DDDDDD;
-}
-.form-control :focus {
-    box-shadow: none;
-}
-
 .btn {
-    font-size: 1.2rem;
-    width: 400px;
-}
-.btn-danger{
-    background-color: darkred;
-    border: none;
-    box-shadow: none;
-}
-
-.firstLastName{
+    font-size: 18px;
+    width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
 }
-.firstLastName input{
-    width:195px;
-}
 
-.error {
-    color: red;
-    width: 400px;
-    margin: 1rem;
-    text-align: center;
-}
-
-@media only screen and (max-width: 800px) {
-    .btn {
-        width: 250px;
-    }
-    .form-control {
-        width: 250px;
-    }
-    .firstLastName {
-        flex-direction: column;
-        gap: 15px
-    } 
-    .firstLastName input {
-        width: 250px;
-    }
-}
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 370px) {
     .app-brand {
-        margin: 10px;
+        margin: 30px 10px;
     }
-}
-
-
-/* Scroll bar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-track {
-    background: #3e3e3e;
-}
-::-webkit-scrollbar-thumb {
-    background: rgb(40, 40, 40);
-}
-::-webkit-scrollbar-thumb:hover {
-    background: rgb(19, 19, 19);
+    form{
+        width: 250px;
+    };
 }

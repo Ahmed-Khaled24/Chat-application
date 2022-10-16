@@ -1,4 +1,4 @@
-const uploadBtn = document.querySelector('#profile-img button');
+const uploadBtn = document.querySelector('#visual-section button');
 const filePicker = document.querySelector('input[type="file"]');
 
 filePicker.addEventListener('change', () => {
@@ -7,13 +7,13 @@ filePicker.addEventListener('change', () => {
 
 uploadBtn.addEventListener('click', async () => {
     startLoader();
-    const photo = document.querySelector('#profile-img input').files[0];
+    const photo = filePicker.files[0];
     try {
-        console.log('getting signed url');
+        // Get upload link
         let uploadResponse = await fetch('/upload/requestUploadSignedUrl');
         uploadResponse = await uploadResponse.json();
 
-        console.log('upload photo');
+        // Upload the photo
         await fetch(uploadResponse.signedUrl, {
             method: 'PUT',
             headers: {
@@ -22,7 +22,7 @@ uploadBtn.addEventListener('click', async () => {
             body: photo,
         });
 
-        console.log('update user data');
+        // Update the user
         await fetch('/users/update', {
             method: 'POST',
             headers: {
@@ -35,6 +35,7 @@ uploadBtn.addEventListener('click', async () => {
             })
         })
 
+        // Reload the page
         window.location.reload();
     } catch(err) {
         stopLoader();

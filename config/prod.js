@@ -8,5 +8,6 @@ module.exports = {
     google_client_secret: process.env.GOOGLE_CLIENT_SECRET_PROD,
     access_key_id: process.env.ACCESS_KEY_ID,
     secret_access_key: process.env.SECRET_ACCESS_KEY,
-    google_callback: 'https://chat-applicatin-kh.herokuapp.com/auth/google/callback'
+    google_callback: 'https://chat-applicatin-kh.herokuapp.com/auth/google/callback',
+    bucket_name: 'chat-application-bucket01',
 }

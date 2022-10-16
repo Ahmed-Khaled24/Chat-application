@@ -6,6 +6,7 @@ const messagesRouter = require('./routers/messages.router');
 const usersRouter = require('./routers/users.router');
 const viewsRouter = require('./routers/views.router');
 const authRouter = require('./routers/auth.router')
+const uploadRouter = require('./routers/upload.router')
 const path = require('path');
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(passport.session());
 app.use('/messages', messagesRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
+app.use('/upload', uploadRouter);
 app.use('/', viewsRouter);
 
 module.exports = app;
